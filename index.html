@@ -21,7 +21,7 @@
 html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);font-family:var(--body);-webkit-text-size-adjust:100%}
 body{display:flex;flex-direction:column;min-height:100dvh}
 button{font:inherit;color:inherit}
-em.sp{font-family:var(--serif);font-style:italic;font-weight:700}
+em.sp{font-family:inherit;font-style:italic;font-weight:700}
 
 /* barra superior */
 .top{position:sticky;top:0;z-index:5;background:var(--ink);color:var(--paper);padding:10px 16px calc(10px);display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -63,6 +63,7 @@ p{font-size:17px;line-height:1.6;margin:0 0 12px;text-wrap:pretty}
 .lead{font-size:19px}
 ol.steps,ul.list{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
 ol.steps li{display:flex;gap:14px;align-items:flex-start;font-size:17px;line-height:1.5}
+ol.steps li span{text-align:justify}
 ol.steps li b{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);font-family:var(--mono);display:flex;align-items:center;justify-content:center;font-size:15px}
 ul.list li{display:flex;gap:12px;align-items:flex-start;font-size:17px;line-height:1.5}
 ul.list li i{flex-shrink:0;width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:8px}
@@ -151,17 +152,17 @@ var STAGES = [
   es:'Es muy pequeño, blanco y de forma ovalada, con rayas finas en su superficie. La hembra lo oviposita en el envés de una hoja de algodoncillo, que será el primer alimento de la larva. Lo encontramos en la vereda Caney Alto, Restrepo.',
   en:'Very small, white and oval, with fine stripes on its surface. The female oviposits it on the underside of a milkweed leaf, which will be the larva’s first food. We found it in Caney Alto, Restrepo.'},
  {n:'02',img:'i1',ph:{es:'Larva',en:'Larva'},name:{es:'Ínstar I',en:'Instar I'},
-  es:'La larva emerge del huevo y es diminuta: su cuerpo es blanquecino y empiezan a notarse rayas negras y amarillas. Dedica casi todo su tiempo a comer; en la hoja quedan los huequitos que deja al comer.',
-  en:'The larva emerges from the egg and is tiny: its body is whitish and black and yellow stripes begin to show. It spends almost all its time eating, leaving small holes in the leaf as it feeds.'},
+  es:'La larva emerge del huevo y es diminuta: su cuerpo es blanquecino y empiezan a notarse bandas transversales negras y amarillas. Dedica casi todo su tiempo a comer; en la hoja quedan los huequitos que deja al comer.',
+  en:'The larva emerges from the egg and is tiny: its body is whitish and transverse black and yellow bands begin to show. It spends almost all its time eating, leaving small holes in the leaf as it feeds.'},
  {n:'03',img:'i2',ph:{es:'Larva',en:'Larva'},name:{es:'Ínstar II',en:'Instar II'},
-  es:'La larva aumenta de tamaño y sus bandas de color se definen mejor. Ya se ven los scolus del cuerpo y la larva se muestra más activa.',
-  en:'The larva grows larger and its colour bands become sharper. The body scoli are now visible and the larva is more active.'},
+  es:'La larva aumenta de tamaño y sus bandas de color se definen mejor. Ya se ven los filamentos carnosos del cuerpo y la larva se muestra más activa.',
+  en:'The larva grows larger and its colour bands become sharper. The fleshy filaments are now visible and the larva is more active.'},
  {n:'04',img:'i3',ph:{es:'Larva',en:'Larva'},name:{es:'Ínstar III',en:'Instar III'},
-  es:'Sus colores son más claros y definidos. Come por el borde y el envés de la hoja, dejando mordidas cada vez más visibles. Todo se acelera: crecimiento, alimentación y defecación.',
-  en:'Its colours are brighter and better defined. It feeds along the edge and underside of the leaf, leaving more and more visible bites. Everything speeds up: growth, feeding and defecation.'},
+  es:'Sus colores son más claros y definidos. Come por el borde y el envés de la hoja, dejando mordidas cada vez más visibles. Todo se acelera: aumentan su crecimiento, su alimentación y sus excretas.',
+  en:'Its colours are brighter and better defined. It feeds along the edge and underside of the leaf, leaving more and more visible bites. Everything speeds up: its growth, feeding and excreta all increase.'},
  {n:'05',img:'i4',ph:{es:'Larva',en:'Larva'},name:{es:'Ínstar IV',en:'Instar IV'},
-  es:'La larva crece de forma notable, sus colores se ven más intensos y los scolus más largos. Intensifica notablemente su ritmo de alimentación.',
-  en:'The larva grows noticeably, its colours look more intense and the scoli longer. Its feeding rate increases markedly.'},
+  es:'La larva crece de forma notable, sus colores se ven más intensos y los filamentos carnosos más largos. Intensifica notablemente su ritmo de alimentación.',
+  en:'The larva grows noticeably, its colours look more intense and the fleshy filaments longer. Its feeding rate increases markedly.'},
  {n:'06',img:'i5',ph:{es:'Larva',en:'Larva'},name:{es:'Ínstar V',en:'Instar V'},
   es:'Alcanza su mayor tamaño. Sus bandas negras, amarillas y blancas advierten a los depredadores que no es buena presa, porque acumula sustancias tóxicas del algodoncillo. La larva poco a poco reduce su actividad y se prepara para el siguiente cambio.',
   en:'It reaches its largest size. Its black, yellow and white bands warn predators that it is not good prey, because it stores toxic compounds from milkweed. Little by little the larva slows down and gets ready for the next change.'},
@@ -172,8 +173,8 @@ var STAGES = [
   es:'Se desprende de su última piel y aparece la crisálida: verde, lisa y con puntos dorados. Por dentro, el cuerpo de la larva se reorganiza por completo. Al final la pupa se vuelve transparente y permite apreciar el color de sus alas naranjas y negras.',
   en:'It sheds its last skin and the chrysalis appears: green, smooth and with golden dots. Inside, the larva’s body is completely reorganised. At the end the pupa turns transparent, revealing the colour of its orange and black wings.'},
  {n:'09',img:'emerge',ph:{es:'Adulto',en:'Adult'},name:{es:'Adulto',en:'Adult'},
-  es:'El adulto emerge de la crisálida lentamente, con las alas arrugadas y frágiles. En pocos minutos bombea líquido hacia las venas de las alas, que se extienden y muestran el naranja y negro de la monarca. Así termina su metamorfosis.',
-  en:'The adult slowly emerges from the chrysalis, its wings crumpled and fragile. Within minutes it pumps fluid into the wing veins, which expand to show the monarch’s orange and black. Its metamorphosis is complete.'}
+  es:'El adulto emerge de la crisálida lentamente, con las alas arrugadas y frágiles. En pocos minutos bombea hemolinfa hacia las venas de las alas, que se extienden y muestran el naranja y negro de la monarca. Así termina su metamorfosis.',
+  en:'The adult slowly emerges from the chrysalis, its wings crumpled and fragile. Within minutes it pumps hemolymph into the wing veins, which expand to show the monarch’s orange and black. Its metamorphosis is complete.'}
 ];
 
 var MORPH = [
@@ -185,7 +186,7 @@ var MORPH = [
   {es:['Cabeza','Con mandíbulas para cortar y masticar las hojas.'],en:['Head','With mandibles to cut and chew leaves.']},
   {es:['Tórax','Lleva tres pares de patas torácicas, las patas verdaderas.'],en:['Thorax','Carries three pairs of thoracic legs, the true legs.']},
   {es:['Abdomen','Con propatas ventrales y una propata anal que le ayudan a sujetarse.'],en:['Abdomen','With ventral prolegs and an anal proleg that help it grip.']},
-  {es:['Scolus','Un par en la parte delantera y otro en la trasera; son sensoriales.'],en:['Scoli','One pair at the front and another at the back; they are sensory.']}]},
+  {es:['Filamentos carnosos','Un par en la parte delantera y otro en la trasera; son sensoriales.'],en:['Fleshy filaments','One pair at the front and another at the back; they are sensory.']}]},
  {img:'pupa',name:{es:'Pupa',en:'Pupa'},parts:[
   {es:['Cremáster','Tejido del extremo del abdomen que se clava en la seda.'],en:['Cremaster','Hook at the tip of the abdomen that anchors into the silk.']},
   {es:['Seda','Botón de seda que la larva tejió para colgarse.'],en:['Silk','Silk pad the larva spun to hang from.']},
@@ -228,15 +229,15 @@ function intro(L){
  return '<div class="sheet two"><div class="photo"><img src="'+IMG.i4+'" alt="'+T('Larva de monarca sobre hoja de algodoncillo','Monarch larva on a milkweed leaf',L)+'"></div>'+
   '<div class="label"><span class="pin"></span><div class="kicker">'+T('Introducción','Introduction',L)+'</div>'+
   '<h2>'+T('¿Por qué estudiar los estados inmaduros?','Why study the immature stages?',L)+'</h2>'+
-  '<p class="lead">'+T('Las mariposas polinizan plantas, sirven de alimento a otros animales y reflejan el equilibrio de los ecosistemas. Pero antes de volar pasan por tres estados poco conocidos: <b>huevo, larva y pupa</b>.',
-   'Butterflies pollinate plants, feed other animals and reflect the balance of ecosystems. But before they fly, they go through three little-known stages: <b>egg, larva and pupa</b>.',L)+'</p>'+
-  '<p>'+T('En nuestro mariposario escolar en Restrepo (Meta, Colombia) investigamos a una monarca durante <b>26 días</b>, desde el huevo hasta el adulto, y registramos cada cambio.',
-   'In our school butterfly garden in Restrepo (Meta, Colombia) we investigate one monarch for <b>26 days</b>, from egg to adult, recording every change.',L)+'</p></div></div>';
+  '<p class="lead">'+T('Las mariposas polinizan plantas, hacen parte de la red trófica y son bioindicadores ambientales. Pero antes de volar pasan por tres estados poco conocidos: <b>huevo, larva y pupa</b>.',
+   'Butterflies pollinate plants, are part of the food web and are environmental bioindicators. But before they fly, they go through three little-known stages: <b>egg, larva and pupa</b>.',L)+'</p>'+
+  '<p>'+T('En nuestro mariposario escolar en Restrepo (Meta, Colombia) seguimos a una monarca durante <b>26 días</b>, desde el huevo hasta el adulto, y registramos cada cambio.',
+   'In our school butterfly garden in Restrepo (Meta, Colombia) we followed one monarch for <b>26 days</b>, from egg to adult, recording every change.',L)+'</p></div></div>';
 }
 function method(L){
  var s=[T('Recolectamos el huevo en una planta de algodoncillo, en la vereda Caney Alto (Restrepo).','We collected the egg from a milkweed plant in Caney Alto (Restrepo).',L),
   T('Lo mantuvimos en un recipiente transparente, con hojas frescas y limpieza diaria.','We kept it in a clear container, with fresh leaves and daily cleaning.',L),
-  T('Registramos tamaño, color y comportamiento con fotos, videos y cuaderno de campo.','We recorded size, colour and behaviour with photos, videos and a field notebook.',L),
+  T('Registramos tamaño, color y comportamiento con fotos, video y cuaderno de campo.','We recorded size, colour and behaviour with photos, video and a field notebook.',L),
   T('Dejamos la pupa en un lugar tranquilo, sin moverla, hasta que emergió el adulto.','We kept the pupa in a quiet place, without moving it, until the adult emerged.',L)];
  var m=L==='en'?['Mobile phone','Ruler','Plastic container','Notebook','Pen','Plant pot']:['Celular','Regla','Recipiente plástico','Cuaderno','Lapicero','Matera'];
  return '<div class="sheet two"><div class="photo"><img src="'+IMG.i3+'" alt="'+T('Larva alimentándose','Larva feeding',L)+'"></div>'+
@@ -278,9 +279,9 @@ function taxo(L){
   '<p style="margin-top:16px;color:var(--muted);font-size:15px">'+SP+' (Linnaeus, 1758)</p></div></div>';
 }
 function closing(L){
- var c=[T('En 26 días observamos la metamorfosis completa de la monarca; cada estado depende del éxito del anterior.','In 26 days we observed the monarch’s complete metamorphosis; each stage depends on the success of the previous one.',L),
-  T('Observar directamente en el mariposario escolar es una forma muy práctica y efectiva de aprender biología.','Direct observation in the school butterfly garden is a very practical and effective way to learn biology.',L),
-  T('Conservar el algodoncillo es clave para mantener a la monarca y a otros polinizadores en la región.','Conserving milkweed is key to keeping monarchs and other pollinators in the region.',L)];
+ var c=[T('El ciclo de vida de los lepidópteros es un proceso y cada momento tiene un tiempo; así es nuestra vida y debemos vivir cada etapa en su debido momento.','The life cycle of Lepidoptera is a process in which each moment has its own time; so is our life, and we must live each stage at its proper moment.',L),
+  T('El proceso experiencial del ciclo de vida de las mariposas nos permite apropiarnos de los temas de biología.','Experiencing the butterfly life cycle first-hand lets us truly take ownership of biology topics.',L),
+  T('De la conservación de las diferentes plantas hospederas depende la vida de los lepidópteros en la I.E.','The life of Lepidoptera at our school depends on conserving their different host plants.',L)];
  return '<div class="sheet two"><div class="label"><span class="pin"></span><div class="kicker">'+T('Conclusiones','Conclusions',L)+'</div><h2>'+T('Lo que aprendimos','What we learned',L)+'</h2>'+
   '<ul class="list">'+c.map(function(x){return '<li><i></i><span>'+x+'</span></li>';}).join('')+'</ul></div>'+
   '<div class="label" style="background:var(--ink);color:var(--paper);border-color:var(--ink)"><div class="kicker" style="color:#D9CFBC">'+T('Autores','Authors',L)+'</div>'+
